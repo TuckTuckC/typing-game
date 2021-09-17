@@ -10,7 +10,8 @@ const Typeracer = (props) => {
         disabled, 
         time, 
         animation, 
-        handleInput
+        handleInput,
+        handleStart,
     } = props;
 
     return (
@@ -18,8 +19,8 @@ const Typeracer = (props) => {
             <div className="wordOutput">
                 <p>{newWord}</p>
             </div>
-            <div style={{animation: animation !== null ? animation : ""}} className="time">
-                <p>{time}</p>
+            <div className="time">
+                <p style={{animation: animation !== null ? animation : ""}}>{time}</p>
             </div>
             <div className="wordValues">
                 <input 
@@ -30,7 +31,7 @@ const Typeracer = (props) => {
                     onChange = {e => setInputValue(e.target.value)}
                     placeholder = {disabled ? "" : "Start Typing..."}
                 />
-                <Button />
+                <Button handleStart = {handleStart} disabled = {disabled} />
             </div>
         </div>
     );

@@ -19,6 +19,23 @@ const App = () => {
 
   let randomWord = Math.floor(Math.random() * word.length);
 
+  const checkAnswer = () => {
+    if(inputValue.trim() === newWord) {
+      setCorrectResults(prevCorrect => [...prevCorrect, newWord]);
+      setCountCorrect(prevCorrect => prevCorrect + 1);
+      return;
+    };
+    setWrongResults(prevWrong => [...prevWrong, inputValue]);
+  };
+
+  const handleInput = e => {
+    if(e.charCode === 13 && inputValue.trim() !== '') {
+      checkAnswer();
+      setNewWord(word[randomWord]);
+      setInputValue('');
+    };
+  };
+
   return (
     <div className="App">
       <Container>
@@ -29,6 +46,7 @@ const App = () => {
           disabled = {disabled}
           time = {time}
           animation = {animation}
+          handleInput = {handleInput}
         />
       </Container>
       <Results 

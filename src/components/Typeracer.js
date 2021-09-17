@@ -3,7 +3,15 @@ import Button from './Button';
 
 const Typeracer = (props) => {
 
-    const {newWord, inputValue, setInputValue, disabled, time, animation} = props;
+    const {
+        newWord, 
+        inputValue, 
+        setInputValue, 
+        disabled, 
+        time, 
+        animation, 
+        handleInput
+    } = props;
 
     return (
         <div className="typeRacer">
@@ -17,6 +25,7 @@ const Typeracer = (props) => {
                 <input 
                     type="text"
                     disabled = {disabled && disabled}
+                    onKeyPress = {e => handleInput(e)}
                     value = {inputValue}
                     onChange = {e => setInputValue(e.target.value)}
                     placeholder = {disabled ? "" : "Start Typing..."}

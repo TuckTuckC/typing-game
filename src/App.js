@@ -20,7 +20,7 @@ const App = () => {
   let randomWord = Math.floor(Math.random() * word.length);
 
   return (
-    <div className="app">
+    <div className="App">
       <Container>
         <Typeracer 
           newWord = {newWord}
@@ -30,12 +30,12 @@ const App = () => {
           time = {time}
           animation = {animation}
         />
-        <Results 
-          correctResults = {correctResults}
-          wrongResults = {wrongResults}
-          countCorrect = {countCorrect}
-        />
       </Container>
+      <Results 
+        correctResults = {correctResults}
+        wrongResults = {wrongResults}
+        countCorrect = {countCorrect}
+      />
     </div>
   );
 };

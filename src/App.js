@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import Words from './components/Words';
 import Container from './components/Container';
+import Typeracer from './components/Typeracer';
 import './App.css';
 
 const App = () => {
@@ -8,7 +9,7 @@ const App = () => {
   const [word, setWord] = useState(Words);
   const [newWord, setNewWord] = useState(word[0]);
   const [disabled, setDisabled] = useState(true);
-  const [currentResults, setCurrentResults] = useState([]);
+  const [correctResults, setCorrectResults] = useState([]);
   const [wrongResults, setWrongResults] = useState([]);
   const [countCorrect, setCountCorrect] = useState(0);
   const [time, setTime] = useState(30);
@@ -19,7 +20,16 @@ const App = () => {
 
   return (
     <div className="app">
-      <div className="h1">Welcome</div>
+      <Container>
+        <Typeracer 
+          newWord = {newWord}
+          inputValue = {inputValue}
+          setInputValue = {setInputValue}
+          disabled = {disabled}
+          time = {time}
+          animation = {animation}
+        />
+      </Container>
     </div>
   );
 };
